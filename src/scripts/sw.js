@@ -6,7 +6,7 @@ import {StaleWhileRevalidate, CacheFirst} from 'workbox-strategies';
 import {ExpirationPlugin} from 'workbox-expiration';
 import {skipWaiting, clientsClaim, setCacheNameDetails} from 'workbox-core';
 
-skipWaiting();
+self.skipWaiting();
 clientsClaim();
 
 setCacheNameDetails({
@@ -17,7 +17,6 @@ setCacheNameDetails({
 
 precacheAndRoute(
     [
-      ...self.__WB_MANIFEST,
       {
         url:
         'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap',
@@ -48,7 +47,7 @@ registerRoute(
     url.origin === 'https://barlland.herokuapp.com/types' ||
     url.origin === 'https://barlland.herokuapp.com/categories',
     new StaleWhileRevalidate({
-      cacheName: 'google-fonts',
+      cacheName: 'barlland-source',
       plugins: [
         new ExpirationPlugin({
           maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
