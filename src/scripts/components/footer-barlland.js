@@ -15,7 +15,7 @@ class FooterBarlland extends HTMLElement {
             </div>
             <div class="col-6 col-md-4 text-start mb-3 text-md-center">
               <h5 class="mb-1">Support</h5>
-              <a href="./pages/contact-us.html">Contact Us</a><br>
+              <a href="#/about/#contact-us">Contact Us</a><br>
             </div>
             <div class="col-6 col-md-4 mb-3 text-start text-md-center">
               <h5 class="mb-1">Barlland</h5>
@@ -39,7 +39,7 @@ class FooterBarlland extends HTMLElement {
               <img src="./logo/logo-2.svg" class="lazyload footer__brand-logo mb-2" alt="logo Barlland">
               <p>© 2021 Barlland</a></p>
             </div>
-            <div class="col-12 col-md-6 text-md-end d-md-none">
+            <div class="col-12 col-md-6 text-md-end d-none d-md-block">
               <div class="footer__social-media">
                 <a href="https://api.whatsapp.com/send?phone=6281995001313" target="_blank" rel="noreferrer">
                   <img class="lazyload" src="./icons/whatsapp.svg" alt="whatsapp" width="28px">
