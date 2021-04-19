@@ -6,7 +6,7 @@ import {StaleWhileRevalidate, NetworkFirst, CacheFirst} from 'workbox-strategies
 import {ExpirationPlugin} from 'workbox-expiration';
 import {skipWaiting, clientsClaim, setCacheNameDetails} from 'workbox-core';
 
-self.skipWaiting();
+skipWaiting();
 clientsClaim();
 
 setCacheNameDetails({
@@ -42,8 +42,7 @@ registerRoute(
 );
 
 registerRoute(
-    ({url}) => url.origin === 'http://localhost/' ||
-  url.origin === 'http://localhost:8080' ||
+    ({url}) => url.origin === 'http://localhost:8080' ||
   url.origin === 'https://https://barlland.netlify.app/',
     new StaleWhileRevalidate({
       cacheName: 'barlland-app',
