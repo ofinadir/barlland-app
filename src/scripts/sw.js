@@ -1,16 +1,80 @@
-import 'regenerator-runtime';
-import CacheHelper from './utils/cache-helper';
+import 'regenerator-runtime/runtime';
+import {precacheAndRoute} from 'workbox-precaching/precacheAndRoute';
+import {cleanupOutdatedCaches} from 'workbox-precaching';
+import {registerRoute} from 'workbox-routing/registerRoute';
+import {StaleWhileRevalidate, CacheFirst} from 'workbox-strategies';
+import {ExpirationPlugin} from 'workbox-expiration';
+import {skipWaiting, clientsClaim, setCacheNameDetails} from 'workbox-core';
 
-const {assets} = global.serviceWorkerOption;
+skipWaiting();
+clientsClaim();
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
+setCacheNameDetails({
+  prefix: 'barlland-app',
+  precache: 'precache',
+  runtime: 'runtime',
 });
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(CacheHelper.deleteOldCache());
-});
+precacheAndRoute(
+    [
+      ...self.__WB_MANIFEST,
+      {
+        url:
+        'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap',
+        revision: 1,
+      },
+    ],
+    {
+      ignoreURLParametersMatching: [/.*/],
+    },
+);
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(CacheHelper.revalidateCache(event.request));
-});
+registerRoute(
+    ({url}) => url.origin === 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap',
+    new StaleWhileRevalidate({
+      cacheName: 'google-fonts',
+      plugins: [
+        new ExpirationPlugin({
+          maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
+          maxEntries: 100,
+        }),
+      ],
+    }),
+);
+
+registerRoute(
+    ({url}) => url.origin === 'https://barlland.herokuapp.com/' ||
+    url.origin === 'https://barlland.herokuapp.com/products' ||
+    url.origin === 'https://barlland.herokuapp.com/types' ||
+    url.origin === 'https://barlland.herokuapp.com/categories',
+    new StaleWhileRevalidate({
+      cacheName: 'google-fonts',
+      plugins: [
+        new ExpirationPlugin({
+          maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
+          maxEntries: 100,
+        }),
+      ],
+    }),
+);
+
+registerRoute(
+    ({request}) => request.destination === 'script' ||
+                 request.destination === 'style',
+    new StaleWhileRevalidate(),
+);
+
+registerRoute(
+    ({request}) => request.destination === 'image',
+    new CacheFirst({
+      cacheName: 'images',
+      plugins: [
+        new ExpirationPlugin({
+          maxEntries: 60,
+          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+        }),
+      ],
+    }),
+);
+
+cleanupOutdatedCaches();
