@@ -8,7 +8,6 @@ const CacheHelper = {
 
   async deleteOldCache() {
     const cacheNames = await caches.keys();
-    console.log(cacheNames);
     await cacheNames
         .filter((name) => name !== CONFIG.CACHE_NAME)
         .map((filteredName) => caches.delete(filteredName));
