@@ -1,0 +1,23 @@
+@media (min-width: 576px) { 
+  /* .card__product {
+    max-width: 310px;
+    max-height: 395px;
+    overflow: hidden;
+  }   */
+}
+
+@media (min-width: 768px) { 
+  .carousel-inner {
+    height: 600px;
+  }
+}
+
+@media (min-width: 1200px) { 
+  .card__product-name{
+    font-size: 1rem;
+  }
+  
+  .card__product-price {
+    font-size: 0.9rem;
+  }
+}

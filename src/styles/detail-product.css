@@ -1,0 +1,45 @@
+.splide__pagination__page.is-active {
+  background: #e9dd00;
+}
+
+.splide__slide.is-active {
+  border-color: #e9dd00 !important;
+  border-width: 3px !important;
+}
+
+.detail__product {
+  font-weight: normal;
+}
+
+.detail__product h3, h4 {
+  color: #797300;
+  font-weight: bold;
+}
+
+.detail__product h4 {
+  color: #575757;
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+.detail__product-title h2{
+  font-weight: 400;
+}
+
+.detail__product-price p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #525252;
+}
+
+.product__order .shopee {
+  border-color: #ff8a0d;
+  background-color: #ff8a0d;
+  color: #ffffff;
+}
+
+.product__order .whatsapp {
+  border-color: #00a832;
+  background-color: #00a832;
+  color: #ffffff;
+}

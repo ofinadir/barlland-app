@@ -1,0 +1,62 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.header__home {
+  position: absolute;
+  width: 100%;
+}
+
+main {
+  min-height: 100%;
+}
+
+.content {
+  padding: 30px 15px;
+  background-color: #fafafa;
+  min-height: 100%;
+}
+
+.content__heading {
+  font-size: 2rem;
+  font-weight:lighter;
+}
+
+.skeleton:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to left, #00000000 0, #ffffff3d);
+  background-size: 200% 200%;
+  animation: loadingGradient 1s infinite;
+}
+
+.skeleton {
+  user-select: none;
+  background-color: #f1f1f1;
+  color: #f1f1f1;
+}
+
+@keyframes loadingGradient {
+  0% {
+    background-position: 0% 50%; }
+  100% {
+    background-position: -200% 0%; } 
+}
+
+
+@import url(./components/nav-bar.css);
+@import url(./components/hero-carousel.css);
+@import url(./components/breadcrumb.css);
+@import url(./components/card.css);
+@import url(./components/footer.css);
+@import url(./detail-product.css);
+@import url(./responsive.css);
