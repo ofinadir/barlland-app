@@ -39,7 +39,7 @@ class FooterBarlland extends HTMLElement {
               <img src="./logo/logo-2.svg" class="lazyload footer__brand-logo mb-2" alt="logo Barlland">
               <p>© 2021 Barlland</a></p>
             </div>
-            <div class="col-12 col-md-6 text-md-end">
+            <div class="col-12 col-md-6 text-md-end d-md-none">
               <div class="footer__social-media">
                 <a href="https://api.whatsapp.com/send?phone=6281995001313" target="_blank" rel="noreferrer">
                   <img class="lazyload" src="./icons/whatsapp.svg" alt="whatsapp" width="28px">
