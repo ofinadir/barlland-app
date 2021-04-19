@@ -17,6 +17,7 @@ setCacheNameDetails({
 
 precacheAndRoute(
     [
+      ...self.__WB_MANIFEST,
       {
         url:
         'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap',
@@ -26,19 +27,6 @@ precacheAndRoute(
     {
       ignoreURLParametersMatching: [/.*/],
     },
-);
-
-registerRoute(
-    ({url}) => url.origin === 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap',
-    new StaleWhileRevalidate({
-      cacheName: 'google-fonts',
-      plugins: [
-        new ExpirationPlugin({
-          maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
-          maxEntries: 100,
-        }),
-      ],
-    }),
 );
 
 registerRoute(

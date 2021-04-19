@@ -1,4 +1,6 @@
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const {merge} = require('webpack-merge');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -7,7 +9,7 @@ module.exports = merge(common, {
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
-      maxSize: 70000,
+      maxSize: 60000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -42,4 +44,12 @@ module.exports = merge(common, {
       },
     ],
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true,
+      statsOptions: {source: false},
+    }),
+  ],
 });
