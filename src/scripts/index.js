@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@splidejs/splide/dist/css/splide.min.css';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
-import 'placeholder-loading/dist/css/placeholder-loading.min.css';
 import '../styles/style.css';
 import './components/navbar-barlland';
 import './components/welcome-popup';
