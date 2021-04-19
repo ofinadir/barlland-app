@@ -11,6 +11,7 @@ const routes = {
   '/jacket': Jacket,
   '/t-shirt': TShirt,
   '/detail/:id': Detail,
+  '/about': About,
 };
 
 export default routes;
