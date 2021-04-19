@@ -15,11 +15,11 @@ class FooterBarlland extends HTMLElement {
             </div>
             <div class="col-6 col-md-4 text-start mb-3 text-md-center">
               <h5 class="mb-1">Support</h5>
-              <a href="#/about">Contact Us</a><br>
+              <a href="#">Contact Us</a><br>
             </div>
             <div class="col-6 col-md-4 mb-3 text-start text-md-center">
               <h5 class="mb-1">Barlland</h5>
-              <a href="#">About Barlland</a> <br>
+              <a href="#about">About Barlland</a> <br>
               <a href="https://api.whatsapp.com/send?phone=6281995001313" target="_blank">
                 Whatsapp </a><br>
               <a href="https://www.instagram.com/barlland/" target="_blank">

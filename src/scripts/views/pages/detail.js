@@ -8,7 +8,7 @@ const Detail = {
   async render() {
     ThemeChanger.navThemeColorToDark();
     return `
-      <div class="container">
+      <div class="container mb-4">
         <div id="detailProduct" class="product"></div>
         <div id="similiarProduct" class="row"></div>
       </div>
@@ -25,7 +25,7 @@ const Detail = {
     const categories = await BarllandDataSource.categories();
     const similiarProductContainer = document.querySelector('#similiarProduct');
     const titleInTheProductDetails = product.title;
-    
+
     similiarProductContainer.innerHTML = '';
     product.categories.forEach((category) => {
       const categoryProductInTheDetails = category.Category;

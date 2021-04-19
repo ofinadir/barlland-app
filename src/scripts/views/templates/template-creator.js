@@ -1,7 +1,7 @@
 import CurrencyConvert from '../../utils/currency-converter';
 
 const createProductDetailTemplate = (product) => `
-  <div class="row mt-3 mb-3">
+  <div class="row mt-3 mb-3 border-bottom pb-5">
     <div class="col-12 col-md-5">
       <div id="primary-slider" class="splide mb-2">
         <div class="splide__track">
