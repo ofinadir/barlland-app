@@ -7,7 +7,7 @@ const Gallery = {
   async render() {
     ThemeChanger.navThemeColorToDark();
     return `
-      <div class="content">
+      <div class="content p-0 pt-3">
         <div class="container">
           <div id="product" class="product">
             
