@@ -12,7 +12,7 @@ class NavbarBarlland extends HTMLElement {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse justify-content-end navbar-collapse ml-5" id="navbarSupportedContent">
-            <ul class="text-end navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#/home">Home</a>
               </li>
