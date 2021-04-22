@@ -25,7 +25,7 @@ const Gallery = {
       <div class="grid-item">
         <img src="./gallery/2.jpg" alt="img2" width="100%">
       </div>
-      <div class="grid-item">
+      <div class="grid-item" style="width:100%;">
         <video width="100%" autoplay controlsList="nodownload" controls muted>
           <source src="./gallery/1.mp4" type="video/mp4">
           Your browser does not support the video tag.
@@ -76,6 +76,9 @@ const Gallery = {
         400: 1,
       },
     });
+    macy.runOnImageLoad(function() {
+      macy.recalculate(true);
+    }, true);
   },
 };
 
