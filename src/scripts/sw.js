@@ -4,9 +4,9 @@ import {cleanupOutdatedCaches} from 'workbox-precaching';
 import {registerRoute} from 'workbox-routing/registerRoute';
 import {StaleWhileRevalidate, NetworkFirst, CacheFirst} from 'workbox-strategies';
 import {ExpirationPlugin} from 'workbox-expiration';
-import {skipWaiting, clientsClaim, setCacheNameDetails} from 'workbox-core';
+import {clientsClaim, setCacheNameDetails} from 'workbox-core';
 
-skipWaiting();
+self.skipWaiting();
 clientsClaim();
 
 setCacheNameDetails({
@@ -31,7 +31,7 @@ precacheAndRoute(
 
 registerRoute(
     ({url}) => url.origin === 'http://localhost:8080' ||
-  url.origin === 'https://https://barlland.netlify.app/',
+    url.origin === 'https://https://barlland.netlify.app/',
     new StaleWhileRevalidate({
       cacheName: 'barlland-app',
       plugins: [
@@ -58,7 +58,7 @@ registerRoute(
 
 registerRoute(
     ({request}) => request.destination === 'script' ||
-                 request.destination === 'style',
+    request.destination === 'style',
     new StaleWhileRevalidate(),
 );
 

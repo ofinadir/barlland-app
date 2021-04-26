@@ -13,6 +13,12 @@ class BarllandDataSource {
     return responseJson;
   }
 
+  static async galleries() {
+    const response = await fetch(API_ENDPOINT.GALLERIES);
+    const responseJson = await response.json();
+    return responseJson;
+  }
+
   static async typeProducts() {
     const response = await fetch(API_ENDPOINT.TYPE_PRODUCTS);
     const responseJson = await response.json();

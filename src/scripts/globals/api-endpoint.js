@@ -1,6 +1,7 @@
 import CONFIG from './config';
 
 const API_ENDPOINT = {
+  GALLERIES: `${CONFIG.base_url}galleries/`,
   ALL_PRODUCTS: `${CONFIG.base_url}products/`,
   TYPE_PRODUCTS: `${CONFIG.base_url}types/`,
   CATEGORIES: `${CONFIG.base_url}categories/`,

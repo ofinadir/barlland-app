@@ -1,5 +1,5 @@
-// import BarllandDataSource from '../../data/data-source';
-// import {createShowProductCardTemplate} from '../templates/template-creator';
+import BarllandDataSource from '../../data/data-source';
+import {templateGallery} from '../templates/template-creator';
 import ThemeChanger from '../../utils/theme-changer';
 import Macy from 'macy/dist/macy';
 
@@ -18,49 +18,11 @@ const Gallery = {
   },
 
   async afterRender() {
+    const galleriesSource = await BarllandDataSource.galleries();
     const productContainer = document.querySelector('#product');
-
-    const templateGallery = () => `
-    <div class="grid" id="macy">
-      <div class="grid-item">
-        <img src="./gallery/2.jpg" alt="img2" width="100%">
-      </div>
-      <div class="grid-item" style="width:100%;">
-        <video width="100%" autoplay controlsList="nodownload" controls muted>
-          <source src="./gallery/1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/3.jpg" alt="img2" width="100%">
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/4.jpg" alt="img2" width="100%">
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/5.JPG" alt="img2" width="100%">
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/6.JPG" alt="img2" width="100%">
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/7.JPG" alt="img2" width="100%">
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/8.JPG" alt="img2" width="100%">
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/9.JPG" alt="img2" width="100%">
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/10.JPG" alt="img2" width="100%">
-      </div>
-      <div class="grid-item">
-        <img src="./gallery/11.JPG" alt="img2" width="100%">
-      </div>
-    </div>
-    `;
-    productContainer.innerHTML += templateGallery();
+    galleriesSource.forEach((galleries) => {
+      productContainer.innerHTML += templateGallery(galleries);
+    });
 
     // eslint-disable-next-line no-unused-vars
     const macy = Macy({

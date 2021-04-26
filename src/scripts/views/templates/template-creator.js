@@ -1,5 +1,21 @@
 import CurrencyConvert from '../../utils/currency-converter';
 
+const templateGallery = (galleries) => `
+<div class="grid" id="macy">
+  <!-- <div class="grid-item" style="width:100%;">
+    <video width="100%" autoplay controlsList="nodownload" controls muted>
+      <source src="./gallery/1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div> -->
+  ${galleries.gallery.map((gallery) => `
+    <div class="grid-item">
+      <img src="${gallery.formats.medium.url}" alt="img2" width="100%">
+    </div>
+  `)}
+</div>
+`;
+
 const createProductDetailTemplate = (product) => `
   <div class="row mt-3 mb-3 border-bottom pb-5">
     <div class="col-12 col-md-5">
@@ -127,4 +143,4 @@ const createShowProductCardTemplate = (product) => `
   </div>
 `;
 
-export {createSkeletonBreadcrumbTemplate, createSkeletonProductTemplate, createProductDetailTemplate, createShowBreadcrumbTemplate, createShowProductCardTemplate};
+export {templateGallery, createSkeletonBreadcrumbTemplate, createSkeletonProductTemplate, createProductDetailTemplate, createShowBreadcrumbTemplate, createShowProductCardTemplate};
