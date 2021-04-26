@@ -30,20 +30,6 @@ precacheAndRoute(
 );
 
 registerRoute(
-    ({url}) => url.origin === 'http://localhost:8080' ||
-    url.origin === 'https://https://barlland.netlify.app/',
-    new StaleWhileRevalidate({
-      cacheName: 'barlland-app',
-      plugins: [
-        new ExpirationPlugin({
-          maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
-          maxEntries: 100,
-        }),
-      ],
-    }),
-);
-
-registerRoute(
     /^https:\/\/barlland\.herokuapp\.com\/(?:(carousels|products|types|categories))/,
     new NetworkFirst({
       cacheName: 'barlland-source',

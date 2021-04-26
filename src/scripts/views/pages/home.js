@@ -13,7 +13,13 @@ const Home = {
         <div class="container">
           <h2 class="content__heading"></h2>
           <div id="product" class="product row">
-
+            <div class="position-relative" style="width:100%; height:50vh;">
+              <div class="d-flex justify-content-center position-absolute top-50 start-50 translate-middle">
+                <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -23,6 +29,7 @@ const Home = {
   async afterRender() {
     const typeProducts = await BarllandDataSource.typeProducts();
     const productContainer = document.querySelector('#product');
+    productContainer.innerHTML = '';
     typeProducts.forEach((typeProduct) => {
       const product = typeProduct.products[0];
       productContainer.innerHTML += createShowProductCardTemplate(product);
